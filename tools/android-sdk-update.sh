@@ -27,5 +27,8 @@ android-accept-licenses.sh "sdkmanager --package_file=/opt/tools/package-list.tx
 echo "Updating SDK"
 update_sdk
 
+echo "Copying Tools again (because sdkmanager might have nuked them...)"
+cp /opt/tools/*.sh ${ANDROID_HOME}/tools/bin
+
 echo "Accepting Licenses"
 android-accept-licenses.sh "sdkmanager --licenses --verbose"
